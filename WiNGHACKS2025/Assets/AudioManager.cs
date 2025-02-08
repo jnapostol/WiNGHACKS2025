@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
         }
         else if (currentScene.name == "Photo1")
         {
-            // copy else if statements with all build scenes
+            // copy else if statements with all build scenes 
         }
     }
     public void SetMusic(AudioClip clip)

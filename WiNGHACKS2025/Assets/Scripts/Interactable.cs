@@ -33,7 +33,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     public void CollectPhoto()
     {
         anim.SetTrigger("Collect");
-        button.interactable = false;
+        button.enabled = false;
         photo.SetFoundBool(true);
     }
 
