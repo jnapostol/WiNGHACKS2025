@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
     bool isFound; // opening drawer makes this true
     bool inPosition; // when player puts the photo in the correct position make it true
@@ -102,5 +102,12 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
 
     }
 
-
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (isComplete)
+        {
+            Debug.Log("loading next scene and clicked on photo");
+            GameManager.Instance.LoadNextScene(GetNextScene());
+        }
+    }
 }

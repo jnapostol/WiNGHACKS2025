@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // Audio
     // Raycasting, click and dragging
 
-    public GameObject PauseUI;
+    public GameObject PauseUI, DialogueUI;
     public static GameManager Instance; // singleton
 
     bool isPaused;
@@ -29,14 +29,22 @@ public class GameManager : MonoBehaviour
             Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.zero);
 
-            if (hit.collider.tag == "Photo" && !isPaused)
+            if (hit.collider != null)
             {
-                Photo hitPhoto = hit.collider.gameObject.GetComponent<Photo>();
-                if (hitPhoto.GetIsCompleteBool())
+                if (hit.collider.tag == "Photo" && !isPaused && hit.collider.gameObject.GetComponent<Photo>() != null)
                 {
-                    //Debug.Log() maybe turn it into a button
-                    //SceneManager.LoadScene(hitPhoto.GetNextScene());
+                    Photo hitPhoto = hit.collider.gameObject.GetComponent<Photo>();
+
                 }
+                //if (hitPhoto.GetIsCompleteBool())
+                //{
+                //    if (Input.GetMouseButtonUp(0))
+                //    {
+                //        Debug.Log("clicked on the photo again");
+                //        //SceneManager.LoadScene(hitPhoto.GetNextScene());
+                //    }
+
+                //}
             }
         }
 
@@ -45,6 +53,12 @@ public class GameManager : MonoBehaviour
             PauseUI.SetActive(true);
             isPaused = true;
         }
+    }
+
+    public void LoadNextScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        // fading to black
     }
 
     public void Quit()
