@@ -16,17 +16,27 @@ public class GameManager : MonoBehaviour
     public List<DialogueTrigger> PhotoTriggers;
     public GameObject Album;
     [SerializeField] GameObject albumButton;
+    [SerializeField] AudioClip startMusic;
 
     bool isOpen;
     bool isPaused;
     DialogueManager dialogueManager;
+    AudioManager audioManager;
     void Start()
     {
         if (Instance == null)
         {
             Instance = this;
         }
+        audioManager = GetComponent<AudioManager>();
         dialogueManager = GetComponent<DialogueManager>();
+
+        if (startMusic != null)
+        {
+            audioManager.SetMusic(startMusic);
+            audioManager.PlayMusic();
+        }
+
         isPaused = false;
         PauseUI.SetActive(false);
     }
