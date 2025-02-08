@@ -119,4 +119,9 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+
+    public void ClearAlbumOnBed()
+    {
+        albumOnBed = null;
+    }
 }

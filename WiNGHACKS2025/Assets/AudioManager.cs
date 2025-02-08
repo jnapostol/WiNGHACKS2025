@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -13,7 +14,20 @@ public class AudioManager : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
     }
+    private void FixedUpdate()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
 
+        if (currentScene.name == "StartScene")
+        {
+            // Set source clip to appropriate clip from music list
+            // Play music
+        }
+        else if (currentScene.name == "Photo1")
+        {
+            // copy else if statements with all build scenes
+        }
+    }
     public void SetMusic(AudioClip clip)
     {
         source.clip = clip;
@@ -27,5 +41,10 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         source.Stop();
+    }
+
+    public AudioClip GetFromSFXList(int index)
+    {
+        return SFXList[index];
     }
 }

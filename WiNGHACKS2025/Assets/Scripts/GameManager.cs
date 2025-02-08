@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour
                 if (hit.collider.tag == "Interactable")
                 {
                     Interactable obj = hit.collider.gameObject.GetComponent<Interactable>();
-                    if (obj.GetInteractedBool() == false)
+                    if (obj.GetIsActivatedBool())
                     {
-                        obj.Activate();
+                        obj.CollectPhoto();
                     }
                 }
             }
@@ -73,6 +73,10 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (GameObject.Find("Album on Bed"))
+            {
+                GameObject.Find("Album on Bed").SetActive(false);
+            }
             if (isOpen == false)
             {
                 isOpen = true;
@@ -135,6 +139,11 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         PauseUI.SetActive(false); 
         // might need to set time scale?
+    }
+
+    public AudioManager GetAudioManager()
+    {
+        return audioManager;
     }
 
 }
