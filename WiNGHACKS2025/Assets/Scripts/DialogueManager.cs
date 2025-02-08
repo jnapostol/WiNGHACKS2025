@@ -2,43 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
-
-    // Functions: continue/next, peak (see if it ends)
-    // Current trigger
     public bool TriggerOnStart;
     public float Speed; //text speed
     public TextMeshProUGUI Textbox;
-    public TextAsset CurrentTrigger;
+    public TextAsset CurrentTextFile;
+    [SerializeField] DialogueTrigger currentTrigger;
+    [SerializeField] float startDelay;
+    [SerializeField] GameObject albumOnBed;
 
     string[] lines;
     int index;
     bool isTyping;
-
-    // Start is called before the first frame update
     void Start()
     {
         Textbox.text = "";
         index = 0;
-        if (CurrentTrigger != null)
+        if (CurrentTextFile != null)
         {
             ReadFile();
             if (TriggerOnStart)
             {
-                StartDialogue();
+                StartCoroutine(DelayStartDialogue());
             }
         }
     }
 
     void ReadFile()
     {
-        lines = CurrentTrigger.text.Split("\n"); // should split lines up by new line
+        lines = CurrentTextFile.text.Split("\n"); // should split lines up by new line
 
-        foreach (string line in lines) { 
-            Debug.Log(line);
-        }
+        //foreach (string line in lines)
+        //{
+        //    Debug.Log(line);
+        //}
+    }
+
+    IEnumerator DelayStartDialogue()
+    {
+        yield return new WaitForSeconds(startDelay);
+        StartDialogue();
     }
 
     public void StartDialogue()
@@ -46,9 +52,13 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
-    public void SetTrigger (TextAsset newTrigger)
+    public void SetTrigger (DialogueTrigger newTrigger)
     {
-        CurrentTrigger = newTrigger;
+        Array.Clear(lines, 0, lines.Length);
+        index = 0;
+
+        currentTrigger = newTrigger;
+        CurrentTextFile = newTrigger.GetTextFile();        
         ReadFile();
     }
  
@@ -67,11 +77,6 @@ public class DialogueManager : MonoBehaviour
             Textbox.text = string.Empty;
             StartCoroutine(TypeLine());
         }
-       
-        
-        
-        // click once to stop typing and play rest of dialogue
-        // click again to go to next line
     }
 
     IEnumerator TypeLine()
@@ -97,8 +102,26 @@ public class DialogueManager : MonoBehaviour
     void EndTrigger()
     {
         Debug.Log("END");
+        Array.Clear(lines, 0, lines.Length);
+        index = 0;
         GameManager.Instance.DialogueUI.SetActive(false);
+
+        if (albumOnBed != null)
+        {
+            albumOnBed.SetActive(true);
+        }
+
+        if (currentTrigger != null)
+        {
+            if (currentTrigger.hasSceneChange)
+            {
+                GameManager.Instance.LoadNextScene(currentTrigger.GetSceneName());
+            }
+        }
     }
 
-    // check if done somewhere, turn off the UI to explore
+    public void ClearAlbumOnBed()
+    {
+        albumOnBed = null;
+    }
 }

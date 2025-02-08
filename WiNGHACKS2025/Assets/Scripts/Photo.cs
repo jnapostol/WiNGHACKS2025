@@ -12,7 +12,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     bool isComplete;
 
     Animator anim;
-    Collider2D col;
+    AudioSource audioSource;
 
     [SerializeField] Transform target;
     [SerializeField] string scene;
@@ -20,32 +20,32 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
      void Start()
      {
         anim = GetComponent<Animator>();
-        col = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
      }
     void Update()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        //if (Vector2.Distance(transform.position, target.position) < 2)
-        //{
-        //    Debug.Log("From update");
-        //    SetPositionBool(true);
-        //}
     }
      void FixedUpdate()
      {
+
+        if (isFound)
+        {
+            gameObject.SetActive(true);
+        }
+
         if (inPosition)
         {
             SetPhotoPosition(target);
             anim.SetBool("CompletePhoto", true); // Plays completed version
+
+            //  ---------- PLAY AUDIO ----------
+            AudioManager AM = GameManager.Instance.GetAudioManager();
+            // GET CLIP FROM AUDIO MANAGER SFX LIST
+            // PLAY CLIP
+
             isComplete = true;
         }
-
-        if (isComplete)
-        {
-            // click on image to change scene
-           
-        }
-
      }
 
     public string GetNextScene()
@@ -97,6 +97,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         if (Vector2.Distance(transform.position, target.position) < 2)
         {
             Debug.Log("end drag");
+            GameManager.Instance.PhotoList.Add(this);
             SetPositionBool(true);
         }
 

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 923576625156601679}
   - component: {fileID: 7611622603743685713}
+  - component: {fileID: 330170853759713976}
+  - component: {fileID: 2903344734537169937}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -46,3 +48,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 0}
   DialogueUI: {fileID: 0}
+  PhotoList: []
+  PhotoTriggers: []
+  Album: {fileID: 0}
+  albumButton: {fileID: 0}
+  startMusic: {fileID: 0}
+--- !u!114 &330170853759713976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421609082347357861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdf2874f9faa7245bd7f1435796227d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerOnStart: 1
+  Speed: 0.03
+  Textbox: {fileID: 0}
+  CurrentTextFile: {fileID: 4900000, guid: aa7b44cc6cd61bc488e673e38bb4d267, type: 3}
+  currentTrigger: {fileID: 0}
+  startDelay: 0.55
+  albumOnBed: {fileID: 0}
+--- !u!114 &2903344734537169937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421609082347357861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160c9075c12ef624080753405650ce3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFXList: []
+  MusicList: []
