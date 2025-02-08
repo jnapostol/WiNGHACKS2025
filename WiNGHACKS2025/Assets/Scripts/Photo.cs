@@ -25,11 +25,6 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     void Update()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        //if (Vector2.Distance(transform.position, target.position) < 2)
-        //{
-        //    Debug.Log("From update");
-        //    SetPositionBool(true);
-        //}
     }
      void FixedUpdate()
      {
@@ -39,13 +34,6 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
             anim.SetBool("CompletePhoto", true); // Plays completed version
             isComplete = true;
         }
-
-        if (isComplete)
-        {
-            // click on image to change scene
-           
-        }
-
      }
 
     public string GetNextScene()
@@ -97,6 +85,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         if (Vector2.Distance(transform.position, target.position) < 2)
         {
             Debug.Log("end drag");
+            GameManager.Instance.PhotoList.Add(this);
             SetPositionBool(true);
         }
 

@@ -11,7 +11,8 @@ public class DialogueManager : MonoBehaviour
     public bool TriggerOnStart;
     public float Speed; //text speed
     public TextMeshProUGUI Textbox;
-    public TextAsset CurrentTrigger;
+    public TextAsset CurrentTextFile;
+    [SerializeField] DialogueTrigger currentTrigger;
 
     string[] lines;
     int index;
@@ -22,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     {
         Textbox.text = "";
         index = 0;
-        if (CurrentTrigger != null)
+        if (CurrentTextFile != null)
         {
             ReadFile();
             if (TriggerOnStart)
@@ -34,11 +35,11 @@ public class DialogueManager : MonoBehaviour
 
     void ReadFile()
     {
-        lines = CurrentTrigger.text.Split("\n"); // should split lines up by new line
+        lines = CurrentTextFile.text.Split("\n"); // should split lines up by new line
 
-        foreach (string line in lines) { 
-            Debug.Log(line);
-        }
+        //foreach (string line in lines) { 
+        //    Debug.Log(line);
+        //}
     }
 
     public void StartDialogue()
@@ -46,9 +47,10 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
-    public void SetTrigger (TextAsset newTrigger)
+    public void SetTrigger (DialogueTrigger newTrigger)
     {
-        CurrentTrigger = newTrigger;
+        currentTrigger = newTrigger;
+        CurrentTextFile = newTrigger.GetTextFile();        
         ReadFile();
     }
  
@@ -98,7 +100,11 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("END");
         GameManager.Instance.DialogueUI.SetActive(false);
-    }
 
-    // check if done somewhere, turn off the UI to explore
+        if (currentTrigger.hasSceneChange)
+        {
+            GameManager.Instance.LoadNextScene(currentTrigger.GetSceneName());
+
+        }
+    }
 }
