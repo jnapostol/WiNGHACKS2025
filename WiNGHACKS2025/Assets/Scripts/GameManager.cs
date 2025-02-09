@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject PauseUI, DialogueUI;
     public static GameManager Instance; // singleton
-    public List<DialogueTrigger> PhotoTriggers;
     public GameObject Album;
     [SerializeField] GameObject albumButton;
     [SerializeField] AudioClip startMusic;
@@ -48,11 +47,11 @@ public class GameManager : MonoBehaviour
     {
         // Deal with opening the album and pausing the game
 
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            PauseUI.SetActive(true);
-            isPaused = true;
-        }
+        //if (Input.GetKey(KeyCode.Escape))
+        //{
+        //    PauseUI.SetActive(true);
+        //    isPaused = true;
+        //}
 
         if (Input.GetKeyDown(KeyCode.E))
         {

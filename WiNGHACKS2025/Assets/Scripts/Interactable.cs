@@ -29,6 +29,10 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void SetHasInteractedBool(bool value)
+    {
+        hasInteracted = value;
+    }
     public void CollectPhoto()
     {
         // Collect the photo, do animation if applicable, disable button, make the photo appear in album to move
