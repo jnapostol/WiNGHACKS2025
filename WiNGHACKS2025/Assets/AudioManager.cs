@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> SFXList;
     public List<AudioClip> MusicList;
 
-    AudioSource source;
+    public AudioSource source;
 
     void Start()
     {
@@ -48,10 +48,7 @@ public class AudioManager : MonoBehaviour
         source.Play();
     }
 
-    public void SetSource()
-    {
-        
-    }
+   
 
     public AudioClip GetFromSFXList(int index)
     {
