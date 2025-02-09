@@ -34,6 +34,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     {
         anim.SetTrigger("Collect");
         button.enabled = false;
+        photo.gameObject.SetActive(true);
         photo.SetFoundBool(true);
     }
 
