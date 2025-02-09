@@ -7,8 +7,8 @@ using TMPro;
 
 public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    bool isFound; // opening drawer makes this true
-    bool inPosition; // when player puts the photo in the correct position make it true
+    bool isFound; 
+    bool inPosition;
     bool isComplete;
 
     Animator anim;
@@ -24,21 +24,22 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
      }
     void Update()
     {
+        // Update Z position 
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
      void FixedUpdate()
      {
-
-        Debug.Log("pp " + isFound);
         if (isFound)
         {
+            // When photo is found, turn on gameobject in album
             gameObject.SetActive(true);
         }
 
         if (inPosition)
         {
+            // Animate photo into completed version
             SetPhotoPosition(target);
-            anim.SetBool("CompletePhoto", true); // Plays completed version
+            anim.SetBool("CompletePhoto", true);
 
             //  ---------- PLAY AUDIO ----------
             AudioManager AM = GameManager.Instance.GetAudioManager();
@@ -99,8 +100,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     {
         if (Vector2.Distance(transform.position, target.position) < 2)
         {
-            Debug.Log("end drag");
-            GameManager.Instance.PhotoList.Add(this);
+            // When the photo is close to the target position, lock it in place and trigger dialogue
 
             GameManager.Instance.GetDialogueManager().SetTrigger(this.GetComponent<DialogueTrigger>());
             GameManager.Instance.DialogueUI.SetActive(true);
@@ -114,7 +114,8 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     {
         if (isComplete)
         {
-            Debug.Log("loading next scene and clicked on photo");
+            // Clicking on photo loads the photo's scene
+
             transform.position = target.position;
             GameManager.Instance.LoadNextScene(this.GetComponent<DialogueTrigger>().GetSceneName());
         }

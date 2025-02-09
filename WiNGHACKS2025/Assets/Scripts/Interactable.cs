@@ -23,7 +23,6 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     }
     void FixedUpdate()
     {
-
         if (hasInteracted)
         {
             Activate();
@@ -32,6 +31,8 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
 
     public void CollectPhoto()
     {
+        // Collect the photo, do animation if applicable, disable button, make the photo appear in album to move
+
         anim.SetTrigger("Collect");
         button.enabled = false;
         photo.gameObject.SetActive(true);
@@ -56,13 +57,12 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
 
     public bool GetIsActivatedBool()
     {
-
         return isActivated; 
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Activated");
+        // When interacted, collect the photo
 
         if (isActivated)
         {
