@@ -28,9 +28,16 @@ public class DialogueManager : MonoBehaviour
 
         if (CurrentTextFile != null)
         {
+            if (lines != null)
+            {
+                Array.Clear(lines, 0, lines.Length);
+                index = 0;
+            }
+            
             ReadFile();
             if (TriggerOnStart)
             {
+                index = 0;
                 StartCoroutine(DelayStartDialogue());
             }
         }
