@@ -43,6 +43,17 @@ public class AudioManager : MonoBehaviour
         source.Stop();
     }
 
+    public void PlaySFX()
+    {
+        source.Play();
+        Debug.Log("ran" + source.name) ;
+    }
+
+    public void SetSource()
+    {
+        
+    }
+
     public AudioClip GetFromSFXList(int index)
     {
         return SFXList[index];
