@@ -6,7 +6,7 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
-    public bool TriggerOnStart;
+    public bool TriggerOnStart; // Check this to trigger dialogue at the START of the scene, do NOT plug in current trigger
     public float Speed; //text speed
     public TextMeshProUGUI Textbox;
     public TextAsset CurrentTextFile;
