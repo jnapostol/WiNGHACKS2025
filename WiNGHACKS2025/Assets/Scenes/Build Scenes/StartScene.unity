@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1698597085}
+    - target: {fileID: 5883626735854141596, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ea891ee5785fa5e499e606a70b1950b7, type: 2}
     - target: {fileID: 8592524482216882174, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
       propertyPath: m_Name
       value: Photobook
@@ -241,7 +245,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 344030358495370554, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1602273072}
   m_SourcePrefab: {fileID: 100100000, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
 --- !u!224 &19919970 stripped
 RectTransform:
@@ -359,6 +366,11 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5535531782686865049, guid: 3de5205fddf7e6d4eb737b8561486080, type: 3}
   m_PrefabInstance: {fileID: 187711284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &452537040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 344030358495370554, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
+  m_PrefabInstance: {fileID: 19919969}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1691,12 +1703,27 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1570397437283818190, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
   m_PrefabInstance: {fileID: 19919969}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 452537040}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac51906ca8db37f4c863748480f2def2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1602273072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452537040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1204f736b064a04d96df7956e68ae16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasSceneChange: 0
+  textFile: {fileID: 4900000, guid: 03fe9dc29e2bc0f428ef3ee059aad4d0, type: 3}
+  nextScene: Photo1
 --- !u!1001 &1698597084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1777,6 +1804,14 @@ PrefabInstance:
       propertyPath: albumButton
       value: 
       objectReference: {fileID: 1475717468}
+    - target: {fileID: 7611622603743685713, guid: bee93ba4a798ab4439d7c3151052d74a, type: 3}
+      propertyPath: PhotoTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611622603743685713, guid: bee93ba4a798ab4439d7c3151052d74a, type: 3}
+      propertyPath: PhotoTriggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1602273072}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
