@@ -19,7 +19,11 @@ public class DialogueManager : MonoBehaviour
     bool isTyping;
     void Start()
     {
-        Textbox.text = "";
+        if (Textbox != null)
+        {
+            Textbox.text = string.Empty;
+        }
+        
         index = 0;
         if (CurrentTextFile != null)
         {

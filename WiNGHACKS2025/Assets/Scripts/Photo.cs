@@ -78,6 +78,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     {
        if (isComplete)
        {
+            transform.position = target.position;
             return;
        }
      }
@@ -86,6 +87,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     {
         if (isComplete)
         {
+            transform.position = target.position;
             return;
         }
         else
@@ -113,6 +115,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         if (isComplete)
         {
             Debug.Log("loading next scene and clicked on photo");
+            transform.position = target.position;
             GameManager.Instance.LoadNextScene(this.GetComponent<DialogueTrigger>().GetSceneName());
         }
     }

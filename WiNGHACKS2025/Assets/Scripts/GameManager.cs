@@ -36,8 +36,11 @@ public class GameManager : MonoBehaviour
             audioManager.PlayMusic();
         }
 
-        isPaused = false;
-        PauseUI.SetActive(false);
+        if (PauseUI != null) {
+            isPaused = false;
+            PauseUI.SetActive(false);
+        }
+        
     }
     void Update()
     {
