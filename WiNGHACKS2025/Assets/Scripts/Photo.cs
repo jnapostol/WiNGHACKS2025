@@ -42,10 +42,8 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
             anim.SetBool("CompletePhoto", true); // Plays completed version
 
             //  ---------- PLAY AUDIO ----------
-            AudioManager AM = GameManager.Instance.GetAudioManager();
-            AudioSource AS = GameManager.Instance.GetAudioSource();
-            AudioClip clip = AM.SFXList[5];
-            AM.PlaySFX();
+            
+            
             
             
             // GET CLIP FROM AUDIO MANAGER SFX LIST
@@ -106,6 +104,13 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         if (Vector2.Distance(transform.position, target.position) < 2)
         {
             Debug.Log("end drag");
+            AudioManager AM = GameManager.Instance.GetAudioManager();
+            AudioSource AS = GameManager.Instance.GetAudioSource();
+            AudioClip clip = AM.SFXList[5];
+            AS.clip = clip;
+            AM.SetMusic(clip);
+            AM.PlaySFX();
+
             GameManager.Instance.PhotoList.Add(this);
             
             GameManager.Instance.GetDialogueManager().SetTrigger(this.GetComponent<DialogueTrigger>());
