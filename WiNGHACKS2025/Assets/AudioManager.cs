@@ -48,7 +48,10 @@ public class AudioManager : MonoBehaviour
         source.Play();
     }
 
-   
+   public void PlaySFX(AudioClip clip)
+    {
+
+    }
 
     public AudioClip GetFromSFXList(int index)
     {
