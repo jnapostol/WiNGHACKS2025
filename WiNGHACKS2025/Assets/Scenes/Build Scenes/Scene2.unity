@@ -436,6 +436,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4743061764143558518, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 480301923}
+    - targetCorrespondingSourceObject: {fileID: 4743061764143558518, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 480301924}
+    - targetCorrespondingSourceObject: {fileID: 1503193005923024756, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 861500427}
   m_SourcePrefab: {fileID: 100100000, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
 --- !u!224 &19919970 stripped
 RectTransform:
@@ -774,6 +780,51 @@ MonoBehaviour:
   hasSceneChange: 0
   textFile: {fileID: 4900000, guid: b4b0329886431b5439d28abac8e0f9b6, type: 3}
   nextScene: Photo2
+--- !u!114 &480301924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480301917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 54ad35a7462cedf4fabe0418cece2f59, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 9960658d40a4d374dba8a67883e9618c, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1063,6 @@ RectTransform:
   - {fileID: 287129239521194556}
   - {fileID: 2022142025}
   - {fileID: 236814942}
-  - {fileID: 1736955762}
   - {fileID: 1584669851}
   - {fileID: 1475717467}
   - {fileID: 19919970}
@@ -1118,6 +1168,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdf2874f9faa7245bd7f1435796227d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &861500426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1503193005923024756, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
+  m_PrefabInstance: {fileID: 19919969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &861500427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861500426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 54ad35a7462cedf4fabe0418cece2f59, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 9960658d40a4d374dba8a67883e9618c, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &955520671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8028534386069301156, guid: 34fdbd2b3c811874eaf615f291a73f69, type: 3}
@@ -1126,6 +1226,11 @@ GameObject:
 --- !u!224 &955520672 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5441856109833718863, guid: 34fdbd2b3c811874eaf615f291a73f69, type: 3}
+  m_PrefabInstance: {fileID: 1264890846914772151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &960890066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8579340522406199062, guid: 34fdbd2b3c811874eaf615f291a73f69, type: 3}
   m_PrefabInstance: {fileID: 1264890846914772151}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1063141048 stripped
@@ -1399,7 +1504,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4714479664275122132, guid: 3a9d3167d95a930478e028da879a5091, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1475717469}
   m_SourcePrefab: {fileID: 100100000, guid: 3a9d3167d95a930478e028da879a5091, type: 3}
 --- !u!224 &1475717467 stripped
 RectTransform:
@@ -1411,6 +1519,51 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4714479664275122132, guid: 3a9d3167d95a930478e028da879a5091, type: 3}
   m_PrefabInstance: {fileID: 1475717466}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1475717469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475717468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 54ad35a7462cedf4fabe0418cece2f59, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 9960658d40a4d374dba8a67883e9618c, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1560717100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4228952878289612491, guid: 73a071a97496be34b863a262a0ee8fcb, type: 3}
@@ -1430,6 +1583,7 @@ GameObject:
   - component: {fileID: 1584669854}
   - component: {fileID: 1584669852}
   - component: {fileID: 1584669853}
+  - component: {fileID: 1584669857}
   m_Layer: 5
   m_Name: Interactable
   m_TagString: Untagged
@@ -1620,6 +1774,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584669850}
   m_CullTransparentMesh: 1
+--- !u!114 &1584669857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584669850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 54ad35a7462cedf4fabe0418cece2f59, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 9960658d40a4d374dba8a67883e9618c, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1602273072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1758,81 +1957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160c9075c12ef624080753405650ce3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1736955761
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1736955762}
-  - component: {fileID: 1736955764}
-  - component: {fileID: 1736955763}
-  m_Layer: 5
-  m_Name: Overlay
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1736955762
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736955761}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 540433276}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1736955763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736955761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.46666667}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3bf7ff3adb0717c4687028c85471dd57, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1736955764
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736955761}
-  m_CullTransparentMesh: 1
 --- !u!1 &1788141659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,13 +2619,61 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8579340522406199062, guid: 34fdbd2b3c811874eaf615f291a73f69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1264890846914772154}
   m_SourcePrefab: {fileID: 100100000, guid: 34fdbd2b3c811874eaf615f291a73f69, type: 3}
 --- !u!82 &1264890846914772152 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4424852565216070492, guid: 34fdbd2b3c811874eaf615f291a73f69, type: 3}
   m_PrefabInstance: {fileID: 1264890846914772151}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1264890846914772154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960890066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 54ad35a7462cedf4fabe0418cece2f59, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698597085}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2800000, guid: 9960658d40a4d374dba8a67883e9618c, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &8312813170730912937
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     bool isPaused;
     DialogueManager dialogueManager;
     AudioManager audioManager;
-
+    Cursor cursor;
     
     void Start()
     {
@@ -74,6 +74,16 @@ public class GameManager : MonoBehaviour
         }   
     }
 
+
+    public Cursor GetCursor()
+    {
+
+        return cursor; 
+    }
+    public void SetCursor(Texture2D cursor)
+    {
+        Cursor.SetCursor(cursor, Vector2.zero,CursorMode.Auto);
+    }
     public void SetIsOpenBool(bool value)
     {
         // Set if the album is open
