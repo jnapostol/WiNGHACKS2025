@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 {
     // Control quit system
     // Audio
-    // Raycasting, click and dragging
 
     public GameObject PauseUI, DialogueUI;
     public static GameManager Instance; // singleton
@@ -48,29 +47,6 @@ public class GameManager : MonoBehaviour
             isPaused = true;
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.zero);
-
-            if (hit.collider != null)
-            {
-                if (hit.collider.tag == "Photo" && !isPaused && hit.collider.gameObject.GetComponent<Photo>() != null)
-                {
-                    Photo hitPhoto = hit.collider.gameObject.GetComponent<Photo>();
-
-                }
-                if (hit.collider.tag == "Interactable")
-                {
-                    Interactable obj = hit.collider.gameObject.GetComponent<Interactable>();
-                    if (obj.GetIsActivatedBool())
-                    {
-                        obj.CollectPhoto();
-                    }
-                }
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (GameObject.Find("Album on Bed"))
@@ -97,22 +73,28 @@ public class GameManager : MonoBehaviour
             switch (PhotoList.Count)
             {
                 case 1:
-                    dialogueManager.SetTrigger(PhotoTriggers[0]);
-                    dialogueManager.StartDialogue();
+                    //dialogueManager.SetTrigger(PhotoTriggers[0]);
+                    //DialogueUI.SetActive(true);
+                    //dialogueManager.StartDialogue();
                     break;
                 case 2:
-                    dialogueManager.SetTrigger(PhotoTriggers[1]);
-                    dialogueManager.StartDialogue();
+                    //dialogueManager.SetTrigger(PhotoTriggers[1]);
+                    //dialogueManager.StartDialogue();
+                    //DialogueUI.SetActive(true);
                     break;
                 case 3:
-                    dialogueManager.SetTrigger(PhotoTriggers[2]);
-                    dialogueManager.StartDialogue();
+                    //dialogueManager.SetTrigger(PhotoTriggers[2]);
+                    //dialogueManager.StartDialogue();
+                    //DialogueUI.SetActive(true);
                     break;
                 case 4:
                     Debug.Log("All photos are found");
                     // 
-                    dialogueManager.SetTrigger(PhotoTriggers[3]); // set new dialogue trigger to the 4th one in the list
-                    dialogueManager.StartDialogue();
+                    //dialogueManager.SetTrigger(PhotoTriggers[3]); // set new dialogue trigger to the 4th one in the list
+                    //dialogueManager.StartDialogue();
+                    //DialogueUI.SetActive(true);
+
+                    // scene change
                     break;
 
             }
@@ -144,6 +126,10 @@ public class GameManager : MonoBehaviour
     public AudioManager GetAudioManager()
     {
         return audioManager;
+    }
+    public DialogueManager GetDialogueManager()
+    {
+        return dialogueManager;
     }
 
 }

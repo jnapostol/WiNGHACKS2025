@@ -56,6 +56,7 @@ public class DialogueManager : MonoBehaviour
     {
         Array.Clear(lines, 0, lines.Length);
         index = 0;
+        Textbox.text = string.Empty;
 
         currentTrigger = newTrigger;
         CurrentTextFile = newTrigger.GetTextFile();        
@@ -104,6 +105,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("END");
         Array.Clear(lines, 0, lines.Length);
         index = 0;
+        Textbox.text = string.Empty;
         GameManager.Instance.DialogueUI.SetActive(false);
 
         if (albumOnBed != null)

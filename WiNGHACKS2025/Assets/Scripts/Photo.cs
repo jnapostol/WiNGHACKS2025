@@ -29,6 +29,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
      void FixedUpdate()
      {
 
+        Debug.Log("pp " + isFound);
         if (isFound)
         {
             gameObject.SetActive(true);
@@ -98,6 +99,10 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         {
             Debug.Log("end drag");
             GameManager.Instance.PhotoList.Add(this);
+
+            GameManager.Instance.GetDialogueManager().SetTrigger(this.GetComponent<DialogueTrigger>());
+            GameManager.Instance.DialogueUI.SetActive(true);
+            GameManager.Instance.GetDialogueManager().StartDialogue();
             SetPositionBool(true);
         }
 
@@ -108,7 +113,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         if (isComplete)
         {
             Debug.Log("loading next scene and clicked on photo");
-            GameManager.Instance.LoadNextScene(GetNextScene());
+            GameManager.Instance.LoadNextScene(this.GetComponent<DialogueTrigger>().GetSceneName());
         }
     }
 }
