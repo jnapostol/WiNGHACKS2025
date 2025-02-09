@@ -46,7 +46,6 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX()
     {
         source.Play();
-        Debug.Log("ran" + source.name) ;
     }
 
     public void SetSource()
