@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2515357605107504837, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3281482870732295026, guid: 93f0df9e3406fea4f9935f11923870a6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -287
@@ -1374,6 +1378,10 @@ PrefabInstance:
       propertyPath: TriggerOnStart
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 330170853759713976, guid: bee93ba4a798ab4439d7c3151052d74a, type: 3}
+      propertyPath: CurrentTextFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 08e5835485971554ab0ef8d20abad7c1, type: 3}
     - target: {fileID: 923576625156601679, guid: bee93ba4a798ab4439d7c3151052d74a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1667,7 +1675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8028534386069301156, guid: 34fdbd2b3c811874eaf615f291a73f69, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
