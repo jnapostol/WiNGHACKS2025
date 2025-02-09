@@ -94,7 +94,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 05e9829f5a4755049b6d060e3394ba24, type: 3}
   - {fileID: 8300000, guid: fe42b43ff9fe7884c84a4a8f523f6890, type: 3}
   - {fileID: 8300000, guid: cad339a07e6da964ebd56d541651b1a3, type: 3}
-  MusicList: []
+  MusicList:
+  - {fileID: 8300000, guid: fafe407d4cb8d2d4186c6f3efb1f95ad, type: 3}
+  - {fileID: 8300000, guid: 6ed7c030b4a0f0f46836270b8022f526, type: 3}
+  - {fileID: 8300000, guid: add47a9fd86e4dd4db016a7b045e4e3e, type: 3}
+  - {fileID: 8300000, guid: a8525c62d6b9b4e41a2cf46ed1f7709a, type: 3}
+  - {fileID: 8300000, guid: 4945a02b29f457545bdbee1e10187ebf, type: 3}
+  source: {fileID: 0}
 --- !u!82 &8648704021173634200
 AudioSource:
   m_ObjectHideFlags: 0

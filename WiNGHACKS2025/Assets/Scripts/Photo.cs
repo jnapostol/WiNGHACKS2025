@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System;
 
 public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -41,7 +42,10 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
             anim.SetBool("CompletePhoto", true); // Plays completed version
 
             //  ---------- PLAY AUDIO ----------
-            AudioManager AM = GameManager.Instance.GetAudioManager();
+            
+            
+            
+            
             // GET CLIP FROM AUDIO MANAGER SFX LIST
             // PLAY CLIP
 
@@ -100,8 +104,15 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         if (Vector2.Distance(transform.position, target.position) < 2)
         {
             Debug.Log("end drag");
-            GameManager.Instance.PhotoList.Add(this);
+            AudioManager AM = GameManager.Instance.GetAudioManager();
+            AudioSource AS = GameManager.Instance.GetAudioSource();
+            AudioClip clip = AM.SFXList[5];
+            AS.clip = clip;
+            AM.SetMusic(clip);
+            AM.PlaySFX();
 
+            GameManager.Instance.PhotoList.Add(this);
+            
             GameManager.Instance.GetDialogueManager().SetTrigger(this.GetComponent<DialogueTrigger>());
             GameManager.Instance.DialogueUI.SetActive(true);
             GameManager.Instance.GetDialogueManager().StartDialogue();

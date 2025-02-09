@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     bool isPaused;
     DialogueManager dialogueManager;
     AudioManager audioManager;
+
+    
     void Start()
     {
         if (Instance == null)
@@ -133,6 +135,12 @@ public class GameManager : MonoBehaviour
     public DialogueManager GetDialogueManager()
     {
         return dialogueManager;
+    }
+
+    public AudioSource GetAudioSource()
+    {
+        AudioSource audioSource = this.gameObject.GetComponent<AudioSource>();
+        return audioSource;
     }
 
 }
