@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System;
 
 public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    bool isFound; 
-    bool inPosition;
+    bool isFound; // opening drawer makes this true
+    bool inPosition; // when player puts the photo in the correct position make it true
     bool isComplete;
 
     Animator anim;
@@ -24,25 +25,27 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
      }
     void Update()
     {
-        // Update Z position 
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
      void FixedUpdate()
      {
+
+        Debug.Log("pp " + isFound);
         if (isFound)
         {
-            // When photo is found, turn on gameobject in album
             gameObject.SetActive(true);
         }
 
         if (inPosition)
         {
-            // Animate photo into completed version
             SetPhotoPosition(target);
-            anim.SetBool("CompletePhoto", true);
+            anim.SetBool("CompletePhoto", true); // Plays completed version
 
             //  ---------- PLAY AUDIO ----------
-            AudioManager AM = GameManager.Instance.GetAudioManager();
+            
+            
+            
+            
             // GET CLIP FROM AUDIO MANAGER SFX LIST
             // PLAY CLIP
 
@@ -100,8 +103,16 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     {
         if (Vector2.Distance(transform.position, target.position) < 2)
         {
-            // When the photo is close to the target position, lock it in place and trigger dialogue
+            Debug.Log("end drag");
+            AudioManager AM = GameManager.Instance.GetAudioManager();
+            AudioSource AS = GameManager.Instance.GetAudioSource();
+            AudioClip clip = AM.SFXList[5];
+            AS.clip = clip;
+            AM.SetMusic(clip);
+            AM.PlaySFX();
 
+            GameManager.Instance.PhotoList.Add(this);
+            
             GameManager.Instance.GetDialogueManager().SetTrigger(this.GetComponent<DialogueTrigger>());
             GameManager.Instance.DialogueUI.SetActive(true);
             GameManager.Instance.GetDialogueManager().StartDialogue();
@@ -114,8 +125,7 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     {
         if (isComplete)
         {
-            // Clicking on photo loads the photo's scene
-
+            Debug.Log("loading next scene and clicked on photo");
             transform.position = target.position;
             GameManager.Instance.LoadNextScene(this.GetComponent<DialogueTrigger>().GetSceneName());
         }

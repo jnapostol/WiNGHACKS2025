@@ -8,26 +8,52 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> SFXList;
     public List<AudioClip> MusicList;
 
-    AudioSource source;
+    public AudioSource source;
+    AudioSource SFXsource;
 
     void Start()
     {
         source = GetComponent<AudioSource>();
-    }
-    private void FixedUpdate()
-    {
+    
         Scene currentScene = SceneManager.GetActiveScene();
 
-        if (currentScene.name == "StartScene")
+        if (currentScene.name == "StartScene" || currentScene.name == "Scene2" || currentScene.name == "Scene3" || currentScene.name == "Scene4")
         {
-            // Set source clip to appropriate clip from music list
-            // Play music
+            source.clip = MusicList[0];
+            PlayMusic();
         }
         else if (currentScene.name == "Photo1")
         {
-            // copy else if statements with all build scenes 
+            source.clip = MusicList[1];
+            PlayMusic();
+        }
+        else if (currentScene.name == "Photo2")
+        {
+            source.clip = MusicList[2];
+            PlayMusic();
+        }
+        else if (currentScene.name == "Photo3")
+        {
+            source.clip = MusicList[3];
+            PlayMusic();
+        }
+        else if (currentScene.name == "Photo4" || currentScene.name == "End")
+        {
+            source.clip = MusicList[4];
+            PlayMusic();
         }
     }
+    private void FixedUpdate()
+    {
+       
+    }
+
+    public void SetSFXSource(AudioSource sfxSource)
+    {
+        // put this function on the continue button's onclick function
+        SFXsource = sfxSource;
+    }
+
     public void SetMusic(AudioClip clip)
     {
         source.clip = clip;
@@ -45,12 +71,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX()
     {
-        source.Play();
-    }
-
-    public void SetSource()
-    {
-        
+        SFXsource.Play();
     }
 
     public AudioClip GetFromSFXList(int index)
