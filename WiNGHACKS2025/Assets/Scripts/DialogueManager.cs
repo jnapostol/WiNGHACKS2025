@@ -6,7 +6,7 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
-    public bool TriggerOnStart;
+    public bool TriggerOnStart; // Check this to trigger dialogue at the START of the scene, do NOT plug in current trigger
     public float Speed; //text speed
     public TextMeshProUGUI Textbox;
     public TextAsset CurrentTextFile;
@@ -25,11 +25,19 @@ public class DialogueManager : MonoBehaviour
         }
         
         index = 0;
+
         if (CurrentTextFile != null)
         {
+            if (lines != null)
+            {
+                Array.Clear(lines, 0, lines.Length);
+                index = 0;
+            }
+            
             ReadFile();
             if (TriggerOnStart)
             {
+                index = 0;
                 StartCoroutine(DelayStartDialogue());
             }
         }
@@ -37,16 +45,13 @@ public class DialogueManager : MonoBehaviour
 
     void ReadFile()
     {
-        lines = CurrentTextFile.text.Split("\n"); // should split lines up by new line
-
-        //foreach (string line in lines)
-        //{
-        //    Debug.Log(line);
-        //}
+        // Initializes string array
+        lines = CurrentTextFile.text.Split("\n");
     }
 
     IEnumerator DelayStartDialogue()
     {
+        // Coroutine to delay the start dialogue
         yield return new WaitForSeconds(startDelay);
         StartDialogue();
     }
@@ -71,13 +76,14 @@ public class DialogueManager : MonoBehaviour
     {
         if (isTyping)
         {
-            // stop typing play rest of dialogue
+            // Stop typing, show the rest of the dialogue
             StopAllCoroutines();
             Textbox.text = lines[index];
             isTyping = false;
         }
         else
         {
+            // Types the next line of dialogue
             index++;
             Textbox.text = string.Empty;
             StartCoroutine(TypeLine());
@@ -86,6 +92,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        // Types the characters as long as we haven't reached the end of the string array
         if(index < lines.Length)
         {
             isTyping = true;
@@ -106,7 +113,9 @@ public class DialogueManager : MonoBehaviour
 
     void EndTrigger()
     {
+        // Ends the entire dialogue trigger when all text has been read
         Debug.Log("END");
+
         Array.Clear(lines, 0, lines.Length);
         index = 0;
         Textbox.text = string.Empty;

@@ -49,7 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 0}
   DialogueUI: {fileID: 0}
-  PhotoList: []
   PhotoTriggers: []
   Album: {fileID: 0}
   albumButton: {fileID: 0}
@@ -100,7 +99,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: add47a9fd86e4dd4db016a7b045e4e3e, type: 3}
   - {fileID: 8300000, guid: a8525c62d6b9b4e41a2cf46ed1f7709a, type: 3}
   - {fileID: 8300000, guid: 4945a02b29f457545bdbee1e10187ebf, type: 3}
-  source: {fileID: 0}
+  PersistentSFX: {fileID: 0}
+  source: {fileID: 8648704021173634200}
 --- !u!82 &8648704021173634200
 AudioSource:
   m_ObjectHideFlags: 0

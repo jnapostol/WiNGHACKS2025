@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     public List<AudioClip> SFXList;
     public List<AudioClip> MusicList;
+    public GameObject PersistentSFX;
 
     public AudioSource source;
     AudioSource SFXsource;
@@ -77,5 +78,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip GetFromSFXList(int index)
     {
         return SFXList[index];
+    }
+
+    public void SetSFXClip(int index)
+    {
+        SFXsource.clip = GetFromSFXList(index);
     }
 }

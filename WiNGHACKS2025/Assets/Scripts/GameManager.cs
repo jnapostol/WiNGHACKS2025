@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject PauseUI, DialogueUI;
     public static GameManager Instance; // singleton
-    public List<Photo> PhotoList;
-    public List<DialogueTrigger> PhotoTriggers;
     public GameObject Album;
     [SerializeField] GameObject albumButton;
     [SerializeField] AudioClip startMusic;
@@ -29,6 +27,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
         audioManager = GetComponent<AudioManager>();
         dialogueManager = GetComponent<DialogueManager>();
 
@@ -46,11 +45,13 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            PauseUI.SetActive(true);
-            isPaused = true;
-        }
+        // Deal with opening the album and pausing the game
+
+        //if (Input.GetKey(KeyCode.Escape))
+        //{
+        //    PauseUI.SetActive(true);
+        //    isPaused = true;
+        //}
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -70,50 +71,20 @@ public class GameManager : MonoBehaviour
                 Album.SetActive(false);
                 albumButton.SetActive(true);
             }
-        }
-
-
-        if (PhotoList != null)
-        {
-            switch (PhotoList.Count)
-            {
-                case 1:
-                    //dialogueManager.SetTrigger(PhotoTriggers[0]);
-                    //DialogueUI.SetActive(true);
-                    //dialogueManager.StartDialogue();
-                    break;
-                case 2:
-                    //dialogueManager.SetTrigger(PhotoTriggers[1]);
-                    //dialogueManager.StartDialogue();
-                    //DialogueUI.SetActive(true);
-                    break;
-                case 3:
-                    //dialogueManager.SetTrigger(PhotoTriggers[2]);
-                    //dialogueManager.StartDialogue();
-                    //DialogueUI.SetActive(true);
-                    break;
-                case 4:
-                    Debug.Log("All photos are found");
-                    // 
-                    //dialogueManager.SetTrigger(PhotoTriggers[3]); // set new dialogue trigger to the 4th one in the list
-                    //dialogueManager.StartDialogue();
-                    //DialogueUI.SetActive(true);
-
-                    // scene change
-                    break;
-
-            }
-        }    
+        }   
     }
 
     public void SetIsOpenBool(bool value)
     {
+        // Set if the album is open
         isOpen = value;
     }
     public void LoadNextScene(string sceneName)
     {
+        // Load next scene
         SceneManager.LoadScene(sceneName);
-        // fading to black
+        
+        // fading to black?
     }
 
     public void Quit()

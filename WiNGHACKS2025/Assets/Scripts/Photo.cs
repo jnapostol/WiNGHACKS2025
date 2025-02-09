@@ -105,13 +105,9 @@ public class Photo : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         {
             Debug.Log("end drag");
             AudioManager AM = GameManager.Instance.GetAudioManager();
-            AudioSource AS = GameManager.Instance.GetAudioSource();
             AudioClip clip = AM.SFXList[5];
-            AS.clip = clip;
-            AM.SetMusic(clip);
+            AM.PersistentSFX.GetComponent<AudioSource>().clip = clip;
             AM.PlaySFX();
-
-            GameManager.Instance.PhotoList.Add(this);
             
             GameManager.Instance.GetDialogueManager().SetTrigger(this.GetComponent<DialogueTrigger>());
             GameManager.Instance.DialogueUI.SetActive(true);
